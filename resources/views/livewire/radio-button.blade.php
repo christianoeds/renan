@@ -25,7 +25,7 @@
                     </thead>
                     <tbody>
                     @foreach($this->users as $item)
-                        <tr>
+                        <tr wire:click="selectUser({{ $item->id }})" style="cursor: pointer">
                             <th>
                                 <div class="form-check">
                                     <input
@@ -35,7 +35,7 @@
                                         name="flexRadioDefault"
                                         id="flexRadioDefault{{ $item->id }}"
                                         value="{{ $item->id }}"
-                                        wire:change="selectUser('{{ $item->id }}')"
+                                        @if($item->id == $selectedUser) checked @endif
                                     >
                                 </div>
                             </th>
